@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <title>下拉框改变字体颜色</title>
+    <style>
+        /* 简单的样式设置，让页面更好看 */
+        body {
+            font-family: sans-serif;
+            padding: 30px;
+        }
+        .container {
+            display: flex;
+            align-items: center;
+            gap: 10px; /* 元素之间的间距 */
+        }
+        input[type="text"] {
+            padding: 8px;
+            font-size: 16px;
+            width: 200px;
+            font-weight: bold; /* 加粗让颜色更明显 */
+        }
+        select {
+            padding: 8px;
+            font-size: 16px;
+        }
+    </style>
+
+    <script type="text/javascript">
+        // 定义改变颜色的函数
+        // 参数 selectElement 是触发事件的那个 <select> 元素本身
+        function changeColor(selectElement) {
+            // 1. 获取下拉框当前选中的值 (value)
+            var selectedColor = selectElement.value;
+            
+            // 2. 获取要改变颜色的文本框元素
+            var targetInput = document.getElementById("myInput");
+            
+            // 3. 修改文本框的字体颜色样式
+            targetInput.style.color = selectedColor;
+        }
+    </script>
+</head>
+<body>
+
+    <h3>请选择颜色以改变文本框字体：</h3>
+
+    <div class="container">
+        <input type="text" id="myInput" value="I like JavaScript">
+
+        <select onchange="changeColor(this)">
+            <option value="black">默认(黑)</option>
+            <option value="red">红</option>
+            <option value="orange">橙</option> <option value="blue">蓝</option>
+            <option value="green">绿</option>
+            <option value="purple">紫</option>
+        </select>
+    </div>
+
+</body>
+</html>
